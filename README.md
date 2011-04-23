@@ -10,7 +10,7 @@
 * ImageMagick installed
 * [free flickr api key](http://www.flickr.com/services/apps/create/apply)
 
-## Method
+## penmachine Method
 
 1. How to get the metadata of all the pm photo on flickr (need to create a file called flickr.conf with your flickr api key )
     
@@ -30,7 +30,7 @@
 2. How to retrieve the 4622 photos with height >= 720
 
         mkdir HD_PICS; cd HD_PICS
-        ./download720.rb < ../pm.photos.16.april2011.stdout 2>download720.16april2011.stderr
+        ../download720.rb < ../pm.photos.16.april2011.stdout 2>download720.16april2011.stderr
 
 3. Resize images to be 1pixel wide 720 high (for some reason, bug, this converted only 4616 images)
 
@@ -59,3 +59,15 @@
 5. the culmination: pmbarcode2.png
 
         montage -geometry +0+0 -tile x1 pmbarcode1000.png pmbarcode2000.png pmbarcode3000.png pmbarcode4000.png pmbarcode5000.png  pmbarcode2.png
+
+# darkness method
+
+(too tired to give an exhaustive HOWTO like I did for penmachine)
+
+1. get the flickr meta data
+
+        ./getdblackandwhitephotos.rb 1>darkness.photos.21april2011.stdout 2>darkness.photos.21april2011.stderr
+
+2. download the photos that are 720 pixels or higher (used original resolution which is 990 photos as April 21, 2011
+
+        ../download720FromOriginal.rb < ../darkness.photos.21april2011.stdout 2>darkness.download720FromOriginls.16april2011.stderr
